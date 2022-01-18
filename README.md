@@ -3,6 +3,7 @@
 - run `npm start` to start the application
 
 after start you should be able to access the app [here](http://localhost:4200/)(http://localhost:4200/)
+
 P.S. port might be different if 4200 is busy
 
 # Create account
