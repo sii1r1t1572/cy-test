@@ -1,0 +1,20 @@
+.items{
+  &-add{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 0;
+  }
+  &-list{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  &-card{
+    width: calc(25% - 19px);
+    margin: 0 25px 25px 0;
+    min-width: 200px;
+    &:nth-child(4n){
+      margin-right: 0;
+    }
+  }
+}

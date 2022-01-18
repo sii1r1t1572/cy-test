@@ -1,0 +1,18 @@
+<mat-card class="cursor-pointer" [routerLink]="['/items', item.id]">
+  <mat-card-header>
+    <mat-card-title>{{item?.title}}</mat-card-title>
+    <mat-card-subtitle>{{item?.subTitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="item?.imageUrl" [ngClass]="{'img-height': !isOverview}" alt="item?. Image">
+  <mat-card-content>
+    <p class="cut-text">{{item?.description}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/items', item.id, 'edit']">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-button (click)="deleteItem.emit(item?.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

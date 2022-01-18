@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/core/theming/theming";
+@import "assets/styles/main";
+
+
+html, body {
+  height: 100%;
+  background-color: var(--main-bg);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --bg: mat-get-color-config($mat-deep-purple, 'darker-contrast');
+  --white: $light-primary-text;
+  --main-bg: #f9f9f9
+}
+
+

@@ -1,0 +1,73 @@
+<section class="add">
+  <form *ngIf="itemForm" class="example-form" [formGroup]="itemForm" (ngSubmit)="save()">
+
+    <div class="add-img" *ngIf="itemForm?.get('imageUrl')?.value">
+      <img [src]="itemForm.get('imageUrl')?.value" alt="Image For Item">
+    </div>
+
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input type="text" matInput [errorStateMatcher]="matcher"
+             formControlName="title">
+      <mat-error *ngIf="itemForm.get('title').hasError('required') && itemForm.get('title').touched">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sub Title</mat-label>
+      <input type="text" matInput [errorStateMatcher]="matcher"
+             formControlName="subTitle">
+      <mat-error *ngIf="itemForm.get('subTitle').hasError('required') && itemForm.get('subTitle').touched">
+        Sub Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Image ID</mat-label>
+      <input type="number" matInput [errorStateMatcher]="matcher"
+             placeholder="From 1 to 100"
+             formControlName="imageId">
+      <mat-icon matSuffix class="cursor-pointer"
+                [matTooltip]="imageInfo">
+        info
+      </mat-icon>
+      <mat-error *ngIf="itemForm.get('imageId').hasError('required') && itemForm.get('imageId').touched">
+        Image ID is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('imageId').hasError('max')">
+        Maximum ID is<strong>100</strong>
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('imageId').hasError('min')">
+        Minimum ID is<strong>1</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput
+                formControlName="description"
+      ></textarea>
+      <mat-error *ngIf="itemForm.get('description').hasError('required') && itemForm.get('imageUrl').touched">
+        Description is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary"
+            class="mb-3"
+            [disabled]="itemForm.invalid"
+            type="submit">
+      Save
+    </button>
+
+    <button mat-button color="primary"
+            (click)="goBack()"
+            type="button">
+      Cancel
+    </button>
+  </form>
+</section>
+
+

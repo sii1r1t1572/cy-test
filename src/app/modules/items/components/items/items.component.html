@@ -1,0 +1,24 @@
+<section class="items">
+  <div class="items-add">
+    <button mat-raised-button [routerLink]="'add'">Add new</button>
+  </div>
+  <ng-container *ngIf="(items$ | async) as items">
+
+    <ng-container *ngIf="items?.length === 0; else itemsTemplate">
+      <app-no-data></app-no-data>
+    </ng-container>
+
+    <ng-template #itemsTemplate>
+      <div class="items-list">
+        <div class="items-card" *ngFor="let item of items">
+          <app-item-card
+              [item]="item"
+              (deleteItem)="deleteItem($event)"
+          ></app-item-card>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+
+
+</section>

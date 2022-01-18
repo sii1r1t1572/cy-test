@@ -1,0 +1,55 @@
+<div class="content" *ngIf="singUpForm">
+  <form class="example-form" [formGroup]="singUpForm" (ngSubmit)="signUp()">
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [errorStateMatcher]="matcher"
+             formControlName="email"
+             placeholder="random@example.com">
+      <mat-error *ngIf="singUpForm.get('email').hasError('email') && !singUpForm.get('email').hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="singUpForm.get('email').hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput [errorStateMatcher]="matcher"
+             formControlName="password"
+             placeholder="Password">
+      <mat-error *ngIf="singUpForm.get('password').hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" matInput [errorStateMatcher]="matcherPassword"
+             formControlName="confirmPassword"
+             placeholder="Password">
+      <mat-error *ngIf="singUpForm.hasError('notSame') && singUpForm.get('confirmPassword').touched">
+        Password not <strong>match</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-error *ngIf="error === EAuth.EMAIL" class="mb-3">
+      Email already in use
+    </mat-error>
+
+    <button mat-raised-button color="primary"
+            class="mb-3"
+            [disabled]="singUpForm.invalid"
+            type="submit">
+      Sign Up
+    </button>
+
+    <button mat-button color="primary"
+            [routerLink]="'/sign-in'"
+            type="button">
+      Sign In
+    </button>
+
+  </form>
+</div>

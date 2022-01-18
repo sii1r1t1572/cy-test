@@ -1,0 +1,9 @@
+<div class="buttons mb-3">
+  <button mat-raised-button [routerLink]="'/items'">Go to list</button>
+</div>
+
+<app-item-card
+    [item]="item$ | async"
+    [isOverview]="true"
+    (deleteItem)="deleteItem($event)"
+></app-item-card>

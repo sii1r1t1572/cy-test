@@ -1,0 +1,19 @@
+@import "../../../../../assets/styles/form";
+
+.add{
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 40px;
+  &-img{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 30px;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+}

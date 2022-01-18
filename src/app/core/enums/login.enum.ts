@@ -1,0 +1,6 @@
+export enum EAuth {
+  'EMAIL'= 'EMAIL',
+  'PASSWORD'= 'PASSWORD',
+  'UNREGISTERED'= 'UNREGISTERED',
+  'SUCCESS'= 'SUCCESS'
+}
