@@ -1,7 +1,6 @@
 # Setup project
 - run `npm i` to install dependencies
 - run `npm start` to start the application
-- mocked creds
 
 after start you should be able to access the app [here](http://localhost:4200/)
 P.S. port might be different if 4200 is busy
